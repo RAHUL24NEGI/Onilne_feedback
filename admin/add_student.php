@@ -47,8 +47,8 @@ while(count($foo)>$count)
     $id=$foo[$count][0];
     $name=$foo[$count][1];
     $pass=$id;
-    $year=1;
-    $sem=1;
+    $year=$foo[$count][2];
+    $sem=$foo[$count][3];
     $query="insert into user values('$id','$name','$pass','$year','$sem')";
     mysqli_query($conn,$query);
     $count++;

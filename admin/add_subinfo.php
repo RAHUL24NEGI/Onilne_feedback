@@ -4,25 +4,15 @@ include('../dbconfig.php');
 extract($_POST);
 if(isset($save))
 {
-//check user alereay exists or not
-$sql=mysqli_query($conn,"select * from subinfo where subcode='$subcode'");
 
-$r=mysqli_num_rows($sql);
 
-if($r==true)
-{
-$err= "<font color='red'><h3 align='center'>This Subject Code already exists</h3></font>";
-}
-else
-{
-
-$query="insert into subinfo values('$subcode','$subject','$facid','$year','$sem')";
+$query="insert into subinfo values('$subcode','$subject','$facid','$year','$sem','$acyear','$acsem')";
 mysqli_query($conn,$query);
 
 
 $err="<font color='blue'><h3 align='center'>Subject Added !!<h3></font>";
 
-}
+
 }
 
 
@@ -52,15 +42,66 @@ $err="<font color='blue'><h3 align='center'>Subject Added !!<h3></font>";
 					<td>Faculty ID</td>
 					<Td><input  type="text" name="facid" class="form-control" required/></td>
 				</tr>
+				<tr>
+					<td>Faculty Name</td>
+					<Td><input  type="text" name="facid" class="form-control" required/></td>
+				</tr>
 
 				<tr>
 					<td>Year</td>
-					<Td><input  type="text" name="year" class="form-control" required/></td>
+					<Td><select name="sesyear" class="form-control" required>
+                    <option>-</option>
+					<option>1</option>
+					<option>2</option>
+                    <option>3</option>
+                    <option>4</option>
 				</tr>
 				<tr>
 					<td>Semester</td>
-					<Td><input  type="text" name="sem" class="form-control" required/></td>
+					<Td><select name="sesyear" class="form-control" required>
+                    <option>-</option>
+					<option>1</option>
+					<option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+					<option>5</option>
+                    <option>6</option>
+					<option>7</option>
+                    <option>8</option>
 				</tr>
+
+
+				<tr>
+				<td>
+					Academic Year
+				</td>
+				<Td><select name="sesyear" class="form-control" required>
+                    <option>-</option>
+					<option>2021</option>
+					<option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+					<option>2028</option>
+					</select>
+					</td>
+				</tr>
+
+				<tr>
+				<td>
+					Odd/Even Sem
+				</td>
+				<Td><select name="sesyear" class="form-control" required>
+                    <option>-</option>
+					<option>Odd</option>
+					<option>even</option>
+					</select>
+					</td>
+				</tr>
+
+
 				<tr>
 					
 					

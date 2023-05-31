@@ -17,8 +17,8 @@ $count = 1;
 $conn = mysqli_connect('localhost','root','','feedback');
 while(count($foo)>$count)
 {
-    $stuid=$foo[$count][0];
-    $subcode=$foo[$count][1];
+    $subcode=$subcode;
+    $stuid=$foo[$count][1];
     $que1=$foo[$count][3];
     $que2=$foo[$count][4];
     $que3=$foo[$count][5];
@@ -33,7 +33,7 @@ while(count($foo)>$count)
     $sem=$sem;
     
     
-    $query="insert into stufeedback values('$id','$subcode','$quest1','$quest2','$quest3','$quest4','$quest5','$quest6','$quest7','$quest8','$quest9','$quest10','$sesyear','$sem')";
+    $query="insert into stufeedback values('$stuid','$subcode','$que1','$que2','$que3','$que4','$que5','$que6','$que7','$que8','$que9','$que10','$sesyear','$sem')";
     mysqli_query($conn,$query);
     $count++;
 }
@@ -45,10 +45,10 @@ echo "<script>window.location.href='dashboard.php?info=confirmation';</script>";
 
 ?>
 <br>
-<br>
-<h3 text align='center'>Upload student feedback on basis of these Questions of a subject to a 
-    faculty teaching that subject over the semester,with attachment of their marks in that semester</h3>
+<h2 text align='center'>Upload student feedback</h2>
 
+    <br>
+    <br>
 
 <p>1.Teacher is good at stimulating the interest in the course content:</p>
 
@@ -74,6 +74,13 @@ echo "<script>window.location.href='dashboard.php?info=confirmation';</script>";
 <h1 class="page-header">Upload feedbak here</h1>
 <div class="col-lg-8" style="margin:15px;">
 	<form method="post">
+
+    <div class="control-group form-group">
+    	<div class="controls">
+        	<label>Subject Code</label>
+            <Td><input type="text" name="subcode" class="form-control" required/></td>
+        </div>
+    </div>
 	
 	   <div class="control-group form-group">
     	<div class="controls">
@@ -93,7 +100,7 @@ echo "<script>window.location.href='dashboard.php?info=confirmation';</script>";
         </div>
    	</div>
 
-	<div class="control-group form-group">
+       <div class="control-group form-group">
     	<div class="controls">
         	<label>Semester</label>
             <Td><select name="sem" class="form-control" required>
@@ -112,4 +119,9 @@ echo "<script>window.location.href='dashboard.php?info=confirmation';</script>";
         
    		<input type="submit" name="import" class="btn btn-info" value="Import">
 
+</div>
+
+<div>
+    <h4> Upload excel in this format</h4>
+    <img src="../images/ex1.png" alt="#" width="350" height="200">
 </div>

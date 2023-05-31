@@ -26,10 +26,10 @@ function deletes(id)
 	while($row=mysqli_fetch_array($que))
 	{
 		echo "<tr>";
-		echo "<td>".$row['id']."</td>";
+		echo "<td>".$row['fac_id']."</td>";
 		echo "<td>".$row['name']."</td>";
-		echo "<td class='text-center'><a href='dashboard.php?id=$row[id]&info=updatefacpass'><span class='glyphicon glyphicon-pencil'style=color:green;></span></a></td>";
-		echo "<td class='text-center'><a href='#' onclick='deletes($row[id])'><span class='glyphicon glyphicon-remove' style=color:red;></span></a></td>";
+		echo "<td class='text-center'><a href='dashboard.php?id=$row[fac_id]&info=updatefacpass'><span class='glyphicon glyphicon-pencil'style=color:green;></span></a></td>";
+		echo "<td class='text-center'><a href='#' onclick='deletes($row[fac_id])'><span class='glyphicon glyphicon-remove' style=color:red;></span></a></td>";
 		echo "</tr>";
 		$i++;
 	}
